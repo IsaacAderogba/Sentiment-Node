@@ -1,5 +1,5 @@
-import usersResolver from "./user/resolvers";
+import userResolvers from "./user/resolvers";
 
 export const Query = [
-  usersResolver.Query
+  userResolvers.Query
 ];
