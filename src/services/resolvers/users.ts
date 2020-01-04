@@ -3,6 +3,7 @@ import {
   inputObjectType,
   queryType,
   stringArg,
+  extendType,
   mutationType,
   arg,
   idArg
@@ -47,3 +48,19 @@ const UserInput = inputObjectType({
     t.string("password", { required: true });
   }
 });
+
+const Query = extendType({
+  type: "Query",
+  definition(t) {
+    t.field("helloWorld", {
+      type: "String",
+      resolve: () => {
+        return "Hello World";
+      }
+    });
+  }
+});
+
+export default {
+  Query
+}

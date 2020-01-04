@@ -37,3 +37,15 @@ var UserInput = nexus_1.inputObjectType({
         t.string("password", { required: true });
     }
 });
+var Query = nexus_1.queryType({
+    definition: function (t) {
+        t.string("helloWorld", {
+            resolve: function () {
+                return "Hello World";
+            }
+        });
+    }
+});
+exports.default = {
+    Query: Query
+};
