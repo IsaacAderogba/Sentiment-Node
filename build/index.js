@@ -1,2 +1,3 @@
 "use strict";
-console.log("working");
+var port = process.env.PORT;
+console.log(port);
