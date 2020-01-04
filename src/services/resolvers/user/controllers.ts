@@ -20,8 +20,13 @@ const registerUser = async (user: UserInputType) => {
   }
 };
 
-const loginUser = async (user: UserInputType) => {
-  const { email, password } = user;
+const loginUser = async ({
+  email,
+  password
+}: {
+  email: string;
+  password: string;
+}) => {
   let userDetails = await UserModel.findUserByFilter({ email });
 
   if (userDetails && bcrypt.compareSync(password, userDetails.password)) {

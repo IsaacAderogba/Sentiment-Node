@@ -1,4 +1,4 @@
-import { extendType, arg } from "nexus";
+import { extendType, arg, stringArg } from "nexus";
 import { Auth, UserInput } from "./types";
 import UserController from "./controllers";
 
@@ -11,6 +11,20 @@ const Query = extendType({
         return "Hello World";
       }
     });
+
+    t.field("loginUser", {
+      type: Auth,
+      nullable: true,
+      args: {
+        email: stringArg({ required: true }),
+        password: stringArg({ required: true })
+      },
+      resolve: async (parent, args) => {
+        const { email, password } = args;
+        const user = await UserController.loginUser({ email, password });
+        return user;
+      }
+    });
   }
 });
 
@@ -19,6 +33,7 @@ const Mutation = extendType({
   definition(t) {
     t.field("createUser", {
       type: Auth,
+      nullable: true,
       args: {
         userInput: arg({ type: UserInput })
       },

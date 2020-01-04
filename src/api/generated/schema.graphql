@@ -10,11 +10,12 @@ type Auth {
 }
 
 type Mutation {
-  createUser(userInput: UserInput): Auth!
+  createUser(userInput: UserInput): Auth
 }
 
 type Query {
   helloWorld: String!
+  loginUser(email: String!, password: String!): Auth
 }
 
 input UserInput {

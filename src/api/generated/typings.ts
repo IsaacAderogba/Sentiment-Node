@@ -53,10 +53,11 @@ export interface NexusGenFieldTypes {
     userId: string; // ID!
   }
   Mutation: { // field return type
-    createUser: NexusGenRootTypes['Auth']; // Auth!
+    createUser: NexusGenRootTypes['Auth'] | null; // Auth
   }
   Query: { // field return type
     helloWorld: string; // String!
+    loginUser: NexusGenRootTypes['Auth'] | null; // Auth
   }
 }
 
@@ -64,6 +65,12 @@ export interface NexusGenArgTypes {
   Mutation: {
     createUser: { // args
       userInput?: NexusGenInputs['UserInput'] | null; // UserInput
+    }
+  }
+  Query: {
+    loginUser: { // args
+      email: string; // String!
+      password: string; // String!
     }
   }
 }
