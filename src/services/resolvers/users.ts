@@ -8,6 +8,25 @@ import {
   idArg
 } from "nexus";
 
+const Me = objectType({
+  name: "Me",
+  definition(t) {
+    t.id("userId");
+    t.boolean("isAuth");
+  }
+});
+
+const Auth = objectType({
+  name: "Auth",
+  definition(t) {
+    t.id("userId");
+    t.string("firstName");
+    t.string("lastName");
+    t.string("token");
+    t.string("tokenExpiration");
+  }
+});
+
 const User = objectType({
   name: "User",
   definition(t) {
