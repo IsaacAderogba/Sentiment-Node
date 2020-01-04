@@ -1,15 +1,6 @@
-import {
-  objectType,
-  inputObjectType,
-  queryType,
-  stringArg,
-  extendType,
-  mutationType,
-  arg,
-  idArg
-} from "nexus";
+import { objectType, inputObjectType } from "nexus";
 
-const Me = objectType({
+export const Me = objectType({
   name: "Me",
   definition(t) {
     t.id("userId");
@@ -17,7 +8,7 @@ const Me = objectType({
   }
 });
 
-const Auth = objectType({
+export const Auth = objectType({
   name: "Auth",
   definition(t) {
     t.id("userId");
@@ -28,7 +19,7 @@ const Auth = objectType({
   }
 });
 
-const User = objectType({
+export const User = objectType({
   name: "User",
   definition(t) {
     t.id("id");
@@ -39,7 +30,7 @@ const User = objectType({
   }
 });
 
-const UserInput = inputObjectType({
+export const UserInput = inputObjectType({
   name: "UserInput",
   definition(t) {
     t.string("firstName", { required: true });
@@ -48,19 +39,3 @@ const UserInput = inputObjectType({
     t.string("password", { required: true });
   }
 });
-
-const Query = extendType({
-  type: "Query",
-  definition(t) {
-    t.field("helloWorld", {
-      type: "String",
-      resolve: () => {
-        return "Hello World";
-      }
-    });
-  }
-});
-
-export default {
-  Query
-}
