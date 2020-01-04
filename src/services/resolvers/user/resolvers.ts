@@ -1,13 +1,6 @@
-import {
-  objectType,
-  inputObjectType,
-  queryType,
-  stringArg,
-  extendType,
-  mutationType,
-  arg,
-  idArg
-} from "nexus";
+import { extendType, arg } from "nexus";
+import { Auth, UserInput } from "./types";
+import UserController from "./controllers";
 
 const Query = extendType({
   type: "Query",
@@ -21,6 +14,23 @@ const Query = extendType({
   }
 });
 
+const Mutation = extendType({
+  type: "Mutation",
+  definition(t) {
+    t.field("createUser", {
+      type: Auth,
+      args: {
+        userInput: arg({ type: UserInput })
+      },
+      resolve: async (parent, args) => {
+        const user = await UserController.registerUser(args.userInput);
+        return user;
+      }
+    });
+  }
+});
+
 export default {
-  Query
-}
+  Query,
+  Mutation
+};

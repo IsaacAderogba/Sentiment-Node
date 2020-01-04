@@ -15,7 +15,6 @@ export const Auth = objectType({
     t.string("firstName");
     t.string("lastName");
     t.string("token");
-    t.string("tokenExpiration");
   }
 });
 
@@ -30,6 +29,14 @@ export const User = objectType({
   }
 });
 
+export interface UserType {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}
+
 export const UserInput = inputObjectType({
   name: "UserInput",
   definition(t) {
@@ -39,3 +46,10 @@ export const UserInput = inputObjectType({
     t.string("password", { required: true });
   }
 });
+
+export interface UserInputType {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+}

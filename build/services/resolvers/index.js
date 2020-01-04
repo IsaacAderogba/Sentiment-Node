@@ -7,3 +7,6 @@ var resolvers_1 = __importDefault(require("./user/resolvers"));
 exports.Query = [
     resolvers_1.default.Query
 ];
+exports.Mutation = [
+    resolvers_1.default.Mutation
+];

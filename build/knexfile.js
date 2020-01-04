@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.development = {
+var development = {
     client: "pg",
     connection: "postgres://localhost/sentiment",
     migrations: {
@@ -11,4 +11,8 @@ exports.development = {
         directory: __dirname + "/db/seeds"
     },
     useNullAsDefault: true
+};
+exports.default = {
+    "development": development,
+    "production": "production"
 };

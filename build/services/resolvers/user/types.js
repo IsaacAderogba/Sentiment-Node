@@ -15,7 +15,6 @@ exports.Auth = nexus_1.objectType({
         t.string("firstName");
         t.string("lastName");
         t.string("token");
-        t.string("tokenExpiration");
     }
 });
 exports.User = nexus_1.objectType({

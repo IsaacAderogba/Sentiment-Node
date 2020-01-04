@@ -9,7 +9,7 @@ var apollo_server_express_1 = require("apollo-server-express"); // allows creati
 var index_1 = require("../services/resolvers/index");
 var app = express_1.default();
 var schema = nexus_1.makeSchema({
-    types: [index_1.Query],
+    types: [index_1.Query, index_1.Mutation],
     outputs: {
         schema: __dirname + "/generated/schema.graphql",
         typegen: __dirname + "/generated/typings.ts"
